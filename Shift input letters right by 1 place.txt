@@ -1,0 +1,28 @@
+using System;
+using System.Text;
+public class Solution
+{
+    public string ShiftByOneCharacter(string s)
+    {
+        StringBuilder shiftedStr = new StringBuilder();
+        for(int i = 0; i < s.Length; i++) {
+            char charInput = s[i];
+            if((charInput >= 'a' && charInput <= 'y') || (charInput >= 'A' && charInput <= 'Y')) {
+                shiftedStr.Append((char)(charInput + 1));
+            }
+            else if(charInput == 'z' || charInput == 'Z') {
+                shiftedStr.Append((char)(charInput - 25));
+            }
+            else {
+                shiftedStr.Append(charInput);
+            }
+        }
+        return shiftedStr.ToString();
+    }
+    public static void Main(string[] args) {
+        Solution solution = new Solution();
+        string testString = "abc123XYz!";
+        string result = solution.ShiftByOneCharacter(testString);
+        Console.WriteLine(result);
+    }
+}
