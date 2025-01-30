@@ -1,0 +1,29 @@
+using System;
+using System.Text;
+
+public class Solution
+{
+    public string TransformString(string inputString)
+    {
+        StringBuilder caseChanger = new StringBuilder();
+        for(int i = 0; i < inputString.Length; i++) {
+            if(inputString[i] >= 'a' && inputString[i] <= 'z' ) {
+                caseChanger.Append((char)(inputString[i] - 32));
+            }
+            else if(inputString[i] >= 'A' && inputString[i] <= 'Z') {
+                caseChanger.Append((char)(inputString[i] + 32));
+            }
+            else {
+                caseChanger.Append(inputString[i]);
+            }
+        }
+	return caseChanger.ToString();
+
+    }
+    public static void Main(string[] args) {
+        Solution solution = new Solution();
+	string testString = "aaaBBB123!";
+	string result = solution.TransformString(testString);
+	Console.WriteLine(result);
+    }
+}
