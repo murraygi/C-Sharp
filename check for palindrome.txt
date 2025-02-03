@@ -1,0 +1,38 @@
+using System;
+using System.Text;
+public class Solution
+{
+    private bool isLetter(char c) {
+        return (c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z');
+    }
+    public char ToLowerCase(char c) {
+        if(c >= 'A' && c <= 'Z') {
+            return(char)(c + ('a' - 'A'));
+        }
+        return c;
+    }
+    public bool IsPalindrome(string inputString)
+    {
+        int left = 0;
+        int right = inputString.Length -1;
+       
+        while(left < right) {
+            if(!isLetter(inputString[left])) {
+                left++;
+            }
+            else if(!isLetter(inputString[right])) {
+                right--;
+            }
+            else
+            {
+                if(ToLowerCase(inputString[left]) != ToLowerCase(inputString[right]))
+            {
+                return false;
+            }
+            left++;
+            right--;
+            }
+        }
+        return true;
+    }
+}
