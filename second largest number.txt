@@ -1,0 +1,24 @@
+using System;
+
+public class Solution
+{
+    public int? SecondMax(int[] nums)
+    {
+        // TODO: Find the second largest number in nums
+        int? largestNum = null;
+        int? secondNum = null;
+        if(nums.Length < 2) {
+            return null;
+        }
+        foreach(int num in nums) {
+            if(largestNum == null || num > largestNum) {
+                secondNum = largestNum;
+                largestNum = num;
+            }
+            else if(num != largestNum && (secondNum == null || num > secondNum)) {
+                secondNum = num;
+            }
+        }
+        return secondNum;
+    }
+}
